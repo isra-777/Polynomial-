@@ -5,11 +5,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Main {
+public class PolynomialEvaluator {
 
     public static void main(String[] args) {
         if (args.length != 2) {
-            System.err.println("Usage: java polynomial.Main input.txt output.txt");
+            System.err.println("Usage: java polynomial.PolynomialEvaluator input.txt output.txt");
             return;
         }
 
@@ -25,12 +25,12 @@ public class Main {
             while ((line = reader.readLine()) != null) {
                 lineNumber++;
 
-                // Remove spaces from the input line
+                // Remove spaces and trim the input line
                 line = line.replaceAll("\\s", "");
 
                 // Check for invalid characters
                 if (!Polynomial.isValidExpression(line)) {
-                    writer.write("Invalid polynomial\n");
+                    writer.write("Invalid polynomial at line " + lineNumber + "\n");
                     continue;
                 }
 
@@ -39,7 +39,7 @@ public class Main {
 
                 // Check for errors in the Polynomial constructor
                 if (polynomial.hasError()) {
-                    writer.write("Invalid polynomial\n");
+                    writer.write("Invalid polynomial at line " + lineNumber + "\n");
                     continue;
                 }
 
@@ -50,7 +50,7 @@ public class Main {
                 writer.write(result + "\n");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error reading or writing files: " + e.getMessage());
         }
     }
 }
