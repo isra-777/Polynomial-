@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectModuleManager">
+  <component name="CustomModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PolynomialIIsraErida.iml" filepath="$PROJECT_DIR$/PolynomialIsraErida.iml" />
+      <module path="PolynomialIIsraErida.iml" url="file://$PROJECT_DIR$/PolynomialIsraErida.iml" />
     </modules>
   </component>
 </project>
+
